@@ -1,4 +1,4 @@
-# Instagram Clone
+# Solvice
 
 <p align="center">Solvice project. Front-end was made with React, Backend with Nest</p>
 
