@@ -41,4 +41,7 @@ export class Photo extends BaseEntity {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @Column({nullable:true})
+  serviceName:string;
 }

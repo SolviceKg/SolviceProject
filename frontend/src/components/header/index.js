@@ -7,7 +7,6 @@ import {
   Nav,
   Container,
   ContainerSearch,
-  Img,
   ContainerOptions,
   Input,
 } from './styles';
@@ -43,7 +42,7 @@ export default function Header() {
       <Nav>
         <Container>
           <Link to="/">
-            <Img src={logo} alt="logo" />
+            <img src={logo} alt="logo" />
           </Link>
           <ContainerSearch>
             <FaSearch color="#ccc" size={15} />

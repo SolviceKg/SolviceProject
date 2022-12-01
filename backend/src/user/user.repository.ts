@@ -44,13 +44,15 @@ export class UserRepository extends Repository<User> {
   }
 
   async updateUser(updateUserDto: UpdateUserDto, user: User) {
-    const { bio, email, name, password, username } = updateUserDto;
+    const { bio, email, name, password, username,wa,telegram } = updateUserDto;
 
     user.bio = bio;
     user.email = email;
     user.name = name;
     user.username = username;
     user.password = password;
+    user.wa=wa;
+    user.telegram=telegram;
     user.save();
     return user;
   }

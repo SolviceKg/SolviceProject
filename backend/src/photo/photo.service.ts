@@ -15,8 +15,8 @@ export class PhotoService {
     @InjectRepository(PhotoRepository) private photoRepository: PhotoRepository,
   ) {}
 
-  async uploadPhoto(key: string, user: User, photoBody: string) {
-    const photoToSave = fromDtoToEntity(key, user, photoBody);
+  async uploadPhoto(key: string, user: User, photoBody: string,serviceName:string) {
+    const photoToSave = fromDtoToEntity(key, user, photoBody,serviceName);
     const photo = await this.photoRepository.uploadPhoto(photoToSave);
 
     const photoCreated = await this.getPhotoById(photo.id);

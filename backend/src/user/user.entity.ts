@@ -58,4 +58,13 @@ export class User extends BaseEntity {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @Column ({nullable:true})
+  role:string;
+   
+  @Column({ nullable: true })
+  telegram:string;
+
+  @Column({ nullable: true })
+  wa:string;
 }

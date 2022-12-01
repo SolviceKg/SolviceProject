@@ -14,4 +14,7 @@ export class UpdateUserDto {
 
   @MaxLength(20)
   bio: string;
+
+  telegram:string;
+  wa:string;
 }

@@ -37,8 +37,9 @@ export class PhotoController {
   ) {
     const key = file.buffer.toString('base64');
     const photoBody = body.body;
-
-    return await this.photoService.uploadPhoto(key, user, photoBody);
+    const serviceName=body.serviceName;
+    
+    return await this.photoService.uploadPhoto(key, user, photoBody,serviceName);
   }
 
   @Get('/:id')

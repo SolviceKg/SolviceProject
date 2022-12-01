@@ -15,4 +15,7 @@ export class ValidationUserDto {
   @MinLength(5)
   @IsNotEmpty()
   password: string;
+  
+  @IsNotEmpty()
+  role:string;
 }
