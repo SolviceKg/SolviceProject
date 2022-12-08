@@ -28,6 +28,7 @@ export default function Signup() {
         email: Yup.string().required().email(),
         username: Yup.string().required().max(8),
         password: Yup.string().required(),
+        role:Yup.string.required(),
       });
       await schema.validate(data, { abortEarly: false });
       await api.post('/user', data);
@@ -42,7 +43,7 @@ export default function Signup() {
       }
     }
   };
-
+  // const [role,setRole]=useState("")
   return (
     <Container>
       <Gif src={gif} alt="gif" />
@@ -50,7 +51,7 @@ export default function Signup() {
       <FormContainer>
         <Form onSubmit={handleSubmit} ref={formRef}>
           <img src={logo} alt="logo" />
-          <span>Register to upload images </span>
+          
           <hr />
           {serverError && (
             <ErrorMessage>
@@ -65,8 +66,16 @@ export default function Signup() {
             placeholder="Enter your password"
           />
           <Input name="email" placeholder="Enter your email" />
+          <Input name="role" placeholder="Choose your role" defaultValue="fdgff" />
+          <select  id="roles">  
+              <option value="">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="audi">Audi</option>
+          </select>
           <button type="submit">Register</button>
           <hr />
+          
 
           <span className="footer">
             By registering you accept our conditions, cookie policies and

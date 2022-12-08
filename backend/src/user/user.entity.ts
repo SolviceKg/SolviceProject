@@ -59,7 +59,7 @@ export class User extends BaseEntity {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @Column ({nullable:true})
+  @Column ()
   role:string;
    
   @Column({ nullable: true })
