@@ -20,6 +20,9 @@ export default function Edit() {
     email: user.email,
     password: user.password,
     bio: user.bio,
+    wa: user.wa,
+    telegram: user.telegram,
+
   });
 
   const formRef = useRef(null);
@@ -43,9 +46,9 @@ export default function Edit() {
   }, []);
 
   const updateUserData = () => {
-    const { name, username, bio, email, password } = userData;
+    const { name, username, bio, email, password,wa,telegram} = userData;
 
-    editUser({ name, username, bio, email, password });
+    editUser({ name, username, bio, email, password,wa,telegram });
   };
 
   const handleSubmit = (e) => {
@@ -113,6 +116,18 @@ export default function Edit() {
                 name="bio"
                 placeholder="Bio"
                 value={userData.bio}
+                onChange={handleChange}
+              />
+              <input
+                name='wa'
+                placeholder="What`s App number"
+                value={userData.wa}
+                onChange={handleChange}
+              />
+              <input
+                name='telegram'
+                placeholder="Telegram username"
+                value={userData.telegram}
                 onChange={handleChange}
               />
 

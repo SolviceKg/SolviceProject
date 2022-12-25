@@ -14,6 +14,7 @@ export function UploadProvider({ children }) {
       const formData = new FormData();
       formData.append('file', dataImage.file, dataImage.file.name);
       formData.append('body', dataImage.body);
+      formData.append('serviceName',dataImage.serviceName)
       const res = await api.post('/photo/upload', formData);
 
       if (res.status === 201) {

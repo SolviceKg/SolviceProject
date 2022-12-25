@@ -13,9 +13,9 @@ import {
 export default function Upload() {
   const inputFile = useRef(null);
   const inputBody = useRef(null);
-
+  const inputService = useRef(null)
   const { error, loading, resetValues, uploadPhotoAction } = useUpload();
-
+  const [serviceName,setserviceName]=useState("")
   const [image, setImage] = useState('');
   const [body, setBody] = useState('');
   const [disabled, setDisabled] = useState(true);
@@ -26,12 +26,13 @@ export default function Upload() {
       const dataImage = {
         file: inputFile.current.files[0],
         body,
+        serviceName,
       };
       uploadPhotoAction(dataImage);
 
       setDisabled(true);
     },
-    [body]
+    [body,serviceName]
   );
 
   const handleInputFile = useCallback(
@@ -44,6 +45,7 @@ export default function Upload() {
         setImage('');
       }
       inputBody.current.focus();
+      inputService.current.focus();
     },
     [resetValues]
   );
@@ -58,6 +60,17 @@ export default function Upload() {
       }
     },
     [body]
+  );
+  const handleService = useCallback(
+    (e) => {
+      setserviceName(e.target.value);
+      if (serviceName.trim().length > 0) {
+        setDisabled(false);
+      } else {
+        setDisabled(true);
+      }
+    },
+    [serviceName]
   );
 
   return (
@@ -89,6 +102,16 @@ export default function Upload() {
         onChange={handleBody}
         ref={inputBody}
       />
+      <input
+        value={serviceName}
+        
+        ref={inputService}
+      />
+      <select  id="serviceName" onChange={handleService}>  
+              <option value="Equipment repair">Equipment repair</option>
+              <option value="Consulting">Consulting</option>
+          </select> 
+
       <Button type="submit" disabled={disabled} error={error}>
         {loading ? <p>Loading...</p> : error ? 'Image too big' : 'Publish'}
       </Button>

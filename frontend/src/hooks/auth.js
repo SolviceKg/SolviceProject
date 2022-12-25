@@ -40,7 +40,7 @@ export function AuthProvider({ children }) {
   }
 
   const editUser = useCallback(
-    async ({ username, password, name, email, bio }) => {
+    async ({ username, password, name, email, bio,wa,telegram }) => {
       try {
         const res = await api.post('/user/update', {
           username,
@@ -48,6 +48,8 @@ export function AuthProvider({ children }) {
           name,
           email,
           bio,
+          wa,
+          telegram,
         });
         if (res.status === 201) {
           signOut();

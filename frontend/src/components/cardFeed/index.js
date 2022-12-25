@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useCallback, useState, Suspense, useEffect } from 'react';
 import TimeAgo from 'react-timeago';
-import spanishString from 'react-timeago/lib/language-strings/es';
-import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
+// import spanishString from 'react-timeago/lib/language-strings/es';
+// import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
 import { FaHeart, FaComment } from 'react-icons/fa';
 import { FiHeart } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
@@ -20,7 +20,8 @@ import {
 import api from '../../api';
 import CommentList from '../commentsList';
 
-const formatter = buildFormatter(spanishString);
+
+// const formatter = buildFormatter(spanishString);
 
 export default function CardFeed({ feed }) {
   const { isAuthor, isLiked, photo } = feed;
@@ -105,13 +106,24 @@ export default function CardFeed({ feed }) {
             {photo.body}
           </span>
         </p>
+        <span
+        style={{
+         
+          fontWeight: 'normal',
+          marginBottom: 10,
+         
+        }}>
+          <b>Service: </b>{photo.serviceName}
+        </span>
 
         <Suspense fallback={<p>Loading..</p>}>
           {commentsPhoto.length > 0 && <CommentList comments={commentsPhoto} />}
         </Suspense>
 
         <StylesTimeAgo>
-          <TimeAgo date={`${photo.createdAt}Z`} formatter={formatter} />
+          <TimeAgo date={`${photo.createdAt}Z`}
+          //  formatter={formatter}
+            />
         </StylesTimeAgo>
 
         <Link

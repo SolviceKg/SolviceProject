@@ -43,7 +43,7 @@ export default function Signup() {
       <FormContainer>
         <Form onSubmit={handleSubmit} ref={formRef}>
           <img src={logo} alt="logo" />
-          <span>Log in to watch photos and videos </span>
+          <span>Log in to find services </span>
           <hr />
           {serverError && (
             <ErrorMessage>
@@ -60,7 +60,7 @@ export default function Signup() {
           <hr />
 
           <span className="footer">
-            Watch what your friends have prepared for you
+            Find your way to solution
           </span>
         </Form>
 

@@ -17,6 +17,8 @@ import {
   Photo,
 } from './styles';
 import { useFeed } from '../../hooks/feed';
+import wa from "../../assets/wa.png"
+import telega from "../../assets/telega.png"
 
 export default function Profile() {
   const { username } = useParams();
@@ -109,8 +111,18 @@ export default function Profile() {
               <span>{count.userFollowersCount} Followers</span>
               <span>{count.userFollowsCount} Following</span>
             </CountsContainer>
-          </div>
 
+            <div style={{marginTop:"20px",display:"flex",alignItems:'center'}}>
+            <a aria-label="Chat on WhatsApp" href={`https://wa.me/${user.wa}`} target="_blank" rel="noreferrer">
+              <img alt="Chat on WhatsApp" src={wa} style={{width:"200px",marginRight:"30px"}} />
+            </a>
+
+            <a aria-label="Chat on Telegam" href={`https://t.me/${user.telegram}`} target="_blank" rel="noreferrer"> <img alt="Chat on Telegram" src={telega}
+              style={{width:"140px",marginRight:"30px",maxHeight:"100px"}}
+            /> </a>
+            </div>
+          </div>
+            
           <Description>
             <p>{user.name}</p>
             <span>{user.bio}</span>

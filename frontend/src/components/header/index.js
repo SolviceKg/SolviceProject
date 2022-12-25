@@ -55,7 +55,9 @@ export default function Header() {
           </ContainerSearch>
 
           <ContainerOptions>
+            {user.role==="specialist"?
             <ModalUploadPhoto />
+            :""}
             <Link to={`/profile/${user && user.username}`}>
               <FaUser color="#222" size={25} />
             </Link>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import TimeAgo from 'react-timeago';
-import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
-import spanishString from 'react-timeago/lib/language-strings/es';
+// import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
+// import spanishString from 'react-timeago/lib/language-strings/es';
 import { useParams } from 'react-router-dom';
 import Layout from '../../components/layout';
 import api from '../../api';
@@ -15,10 +15,11 @@ import {
   TimeStyle,
   ContainerOptions,
 } from './styles';
+
 import Profile from '../../components/profile';
 import Spinner from '../../components/spinner';
 
-const formatter = buildFormatter(spanishString);
+// const formatter = buildFormatter(spanishString);
 
 export default function Post() {
   const { photoId } = useParams();
@@ -49,7 +50,9 @@ export default function Post() {
         <ContainerPost>
           <HeaderPost>
             <Profile img={post.user.avatar} username={post.user.username} />
+            <p><b>Service: </b>{post.serviceName}</p>
             <p style={{ margin: '5px 0' }}>{post.body}</p>
+            
           </HeaderPost>
           <ContainerComments>
             {comments.length > 0 ? (
@@ -63,7 +66,6 @@ export default function Post() {
                   <TimeStyle>
                     <TimeAgo
                       date={`${comment.createdAt}`}
-                      formatter={formatter}
                     />
                   </TimeStyle>
                 </div>
